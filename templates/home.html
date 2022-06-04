@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<style>
+      #grad {
+        height: 500px;
+        background-color: grey;/* For browsers that do not support gradients */
+        background-image: radial-gradient(#e6ebef, #1c87c9, #8ebf42);
+      }
+      .myDiv{
+      text-align: center;
+
+      }
+</style>
+
+  
+</head>
+
+<body id="grad">
+
+ <div class="login" style="text-align: center; " >
+	<h1>Algerian Forest Fire Prediction</h1>
+
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" >
+      <input type="text" name="Day" placeholder="Day" required="required" /><br><br>
+    	<input type="text" name="Month(6: June, 7 : July,8: August, 9: September )" placeholder="Month" required="required" /><br><br>
+        <input type="text" name="Temperature(celsius)" placeholder="Temperature(celsius)" required="required" /><br><br>
+        <input type="text" name="Relative Humidity" placeholder="Relative Humidity" required="required" /><br><br>
+        <input type="text" name="Windspeed" placeholder="Windspeed" required="required" /><br><br>
+        <input type="text" name="Rain" placeholder="Rain" required="Rain" /><br><br>
+        <input type="text" name="Fine Fuel Moisture Code" placeholder="Fine Fuel Moisture Code" required="required" /><br><br>
+        <input type="text" name="Duff Moisture Code" placeholder="Duff Moisture Code" required="required" /><br><br>
+        <input type="text" name="Drought Code" placeholder="Drought Code" required="required" /><br><br>
+        <input type="text" name="Initial Spread Index" placeholder="Initial Spread Index" required="required" /><br><br>
+        <input type="text" name="Buildup Index" placeholder="Buildup Index" required="required" /><br><br>
+        <input type="text" name="Fire Weather Index" placeholder="Fire Weather Index" required="required" /><br><br>
+        <input type="text" name="Region (1 - Bejaia Region, 2 - Sidi-Bel Abbes Region)" placeholder="Region(1 - Bejaia Region, 2 - Sidi-Bel Abbes Region)" required="required" /><br><br><br><br>
+
+
+       
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ <div class="myDiv">
+     <h2>{{prediction_text}}</h2>
+
+</div>
+</body>
+</html>
